@@ -1,103 +1,30 @@
 // Pixels Noeba - repo validator: puzzle bank integrity + nonogram uniqueness solver.
-import { PUZZLES } from '../site/js/puzzles.js';
+import { PACK, PRACTICE, decodePuzzle } from '../site/js/puzzles.js';
+const PUZZLES = PACK.map(decodePuzzle);
+const PRACTICE_PUZZLES = PRACTICE.map(decodePuzzle);
 import { I18N } from '../site/js/i18n.js';
 import { readFileSync, existsSync } from 'node:fs';
 
 let errors = [], warnings = [];
 
-// ---------- nonogram logic ----------
-function cluesOf(line) {
-  const clues = []; let run = 0;
-  for (const c of line) { if (c) run++; else if (run) { clues.push(run); run = 0; } }
-  if (run) clues.push(run);
-  return clues.length ? clues : [0];
-}
-const possCache = new Map();
-function linePossibilities(len, clues, known) {
-  const key = len + '|' + clues.join(',') + '|' + known.join('');
-  if (possCache.has(key)) return possCache.get(key);
-  const out = [];
-  const place = (ci, pos, arr) => {
-    if (ci === clues.length) {
-      for (let i = pos; i < len; i++) { if (known[i] === 1) return; arr[i] = 0; }
-      out.push(arr.slice()); return;
-    }
-    const run = clues[ci];
-    const remaining = clues.slice(ci + 1).reduce((a, b) => a + b, 0) + (clues.length - ci - 1);
-    for (let start = pos; start + run + remaining <= len; start++) {
-      const a = arr.slice();
-      let ok = true;
-      for (let i = pos; i < start; i++) { if (known[i] === 1) { ok = false; break; } a[i] = 0; }
-      if (!ok) break;
-      for (let i = start; i < start + run; i++) { if (known[i] === 0) { ok = false; break; } a[i] = 1; }
-      if (!ok) continue;
-      if (start + run < len) { if (known[start + run] === 1) continue; a[start + run] = 0; }
-      place(ci + 1, start + run + 1, a);
-    }
-  };
-  if (clues.length === 1 && clues[0] === 0) {
-    const a = new Array(len).fill(0);
-    if (!known.some(k => k === 1)) out.push(a);
-  } else place(0, 0, new Array(len).fill(-1));
-  possCache.set(key, out);
-  return out;
-}
-function countSolutions(grid, cap = 2) {
-  const h = grid.length, w = grid[0].length;
-  const rowClues = grid.map(cluesOf);
-  const colClues = []; for (let x = 0; x < w; x++) colClues.push(cluesOf(grid.map(r => r[x])));
-  const known = Array.from({ length: h }, () => new Array(w).fill(-1));
-  let count = 0;
-  function propagate() {
-    let changed = true;
-    while (changed) {
-      changed = false;
-      for (let y = 0; y < h; y++) {
-        const poss = linePossibilities(w, rowClues[y], known[y]);
-        if (poss.length === 0) return false;
-        for (let x = 0; x < w; x++) if (known[y][x] === -1) {
-          const v = poss[0][x];
-          if (poss.every(p => p[x] === v)) { known[y][x] = v; changed = true; }
-        }
-      }
-      for (let x = 0; x < w; x++) {
-        const col = known.map(r => r[x]);
-        const poss = linePossibilities(h, colClues[x], col);
-        if (poss.length === 0) return false;
-        for (let y = 0; y < h; y++) if (known[y][x] === -1) {
-          const v = poss[0][y];
-          if (poss.every(p => p[y] === v)) { known[y][x] = v; changed = true; }
-        }
-      }
-    }
-    return true;
-  }
-  function search() {
-    if (count >= cap) return;
-    // snapshot
-    const snap = known.map(r => r.slice());
-    if (!propagate()) { restore(snap); return; }
-    let bx = -1, by = -1;
-    outer: for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (known[y][x] === -1) { by = y; bx = x; break outer; }
-    if (bx === -1) { count++; restore(snap); return; }
-    for (const v of [1, 0]) {
-      const snap2 = known.map(r => r.slice());
-      known[by][bx] = v;
-      search();
-      restore(snap2);
-      if (count >= cap) { restore(snap); return; }
-    }
-    restore(snap);
-  }
-  function restore(snap) { for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) known[y][x] = snap[y][x]; }
-  search();
-  return count;
-}
+// solver lives in test/solver.mjs (shared with tools/fabrica.mjs)
+import { countSolutions } from './solver.mjs';
 
 // ---------- puzzle bank checks ----------
+if (PUZZLES.length < 365) errors.push(`queue too short: ${PUZZLES.length} dailies (< 365)`);
+const practiceIds = new Set(PRACTICE_PUZZLES.map(p => p.id));
+for (const p of PUZZLES) if (practiceIds.has(p.id)) errors.push(`${p.id}: practice puzzle also in the daily queue`);
+const packBitmaps = new Set();
+for (const p of [...PUZZLES, ...PRACTICE_PUZZLES]) {
+  const bm = p.art.map(r => r.split('').map(c => c === '.' ? 0 : 1).join('')).join('');
+  if (packBitmaps.has(bm)) errors.push(`${p.id}: duplicate bitmap in pack`);
+  packBitmaps.add(bm);
+}
+if (PRACTICE_PUZZLES.length < 6) errors.push(`practice set too small: ${PRACTICE_PUZZLES.length}`);
+for (const d of [1, 2, 3]) if (!PRACTICE_PUZZLES.some(p => p.difficulty === d)) errors.push(`practice set missing difficulty ${d}`);
 const ids = new Set();
 let t0 = Date.now();
-for (const p of PUZZLES) {
+for (const p of [...PUZZLES, ...PRACTICE_PUZZLES]) {
   const tag = p.id;
   if (ids.has(p.id)) errors.push(`${tag}: duplicate id`);
   ids.add(p.id);
