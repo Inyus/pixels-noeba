@@ -397,7 +397,8 @@ function openWinModal() {
     const tick = () => {
       const now = new Date(); const next = new Date(now); next.setHours(24, 0, 0, 0);
       const s = Math.max(0, Math.floor((next - now) / 1000));
-      cd.textContent = `${t('win.next')} ${fmtTime(s)}`;
+      const hh = Math.floor(s / 3600), mm = Math.floor((s % 3600) / 60), ss = s % 60;
+      cd.textContent = `${t('win.next')} ${hh}:${String(mm).padStart(2, '0')}:${String(ss).padStart(2, '0')}`;
     };
     tick(); countdownId = setInterval(tick, 1000);
   }

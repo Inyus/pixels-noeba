@@ -67,6 +67,11 @@ export function artEmoji(puzzle) {
   ).join('\n');
 }
 
+// Monochrome Wordle-style share grid: filled vs empty, always readable.
+export function gridEmoji(puzzle) {
+  return gridOf(puzzle).map(row => row.map(c => (c ? '🟩' : '⬛')).join('')).join('\n');
+}
+
 export function fmtTime(sec) {
   const m = Math.floor(sec / 60), s = sec % 60;
   return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
@@ -75,5 +80,5 @@ export function fmtTime(sec) {
 export function shareText({ number, seconds, heartsLeft, puzzle }) {
   const hearts = '❤️'.repeat(heartsLeft) + '🖤'.repeat(Math.max(0, 3 - heartsLeft));
   const head = number ? `Pixels #${number} · ${fmtTime(seconds)} · ${hearts}` : `Pixels · ${fmtTime(seconds)} · ${hearts}`;
-  return `${head}\n${artEmoji(puzzle)}\nhttps://pixels.noeba.cat`;
+  return `${head}\n${gridEmoji(puzzle)}\nhttps://pixels.noeba.cat`;
 }
