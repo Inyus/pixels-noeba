@@ -1,0 +1,24 @@
+/* pixels.noeba - legal & about pages: same house style, prose-first */
+.doc { width: min(720px, calc(100% - 28px)); margin: 0 auto; flex: 1; padding: 28px 0 44px; }
+.doc h1 { font-family: var(--px); font-size: clamp(.95rem, 3vw, 1.15rem); color: var(--mint); margin: 0 0 8px; line-height: 1.55; }
+.doc .doc-updated { color: var(--muted); font-size: .76rem; font-family: var(--mono); margin: 0 0 24px; }
+.doc h2 { font-size: 1rem; color: var(--ink); margin: 28px 0 8px; }
+.doc p, .doc li { color: #c7d3da; line-height: 1.7; font-size: .93rem; }
+.doc p { margin: 10px 0; }
+.doc ul { padding-left: 22px; margin: 8px 0; }
+.doc li { margin: 4px 0; }
+.doc a { color: var(--mint); }
+.doc code { font-family: var(--mono); font-size: .82em; background: var(--panel2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.doc .doc-nav { margin: 0 0 22px; font-size: .78rem; font-family: var(--mono); }
+.doc .doc-nav a { color: var(--muted); text-decoration: none; }
+.doc .doc-nav a:hover { color: var(--mint); }
+.doc .doc-cards { display: grid; gap: 12px; margin-top: 18px; }
+.doc .doc-card {
+  display: block; border: 1px solid var(--line); background: var(--panel); padding: 16px 18px; text-decoration: none;
+  box-shadow: 5px 5px 0 rgba(114,226,196,.10);
+  clip-path: polygon(0 6px, 3px 6px, 3px 3px, 6px 3px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px));
+}
+.doc .doc-card strong { display: block; color: var(--ink); font-size: .95rem; margin-bottom: 4px; }
+.doc .doc-card span { color: var(--muted); font-size: .84rem; line-height: 1.5; }
+.doc .doc-card:hover strong { color: var(--mint); }
+section[data-lang-section][hidden] { display: none; }

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pixels.noeba.cat/</loc></url>
+  <url><loc>https://pixels.noeba.cat/about/</loc></url>
+  <url><loc>https://pixels.noeba.cat/legal/</loc></url>
+  <url><loc>https://pixels.noeba.cat/legal/aviso-legal/</loc></url>
+  <url><loc>https://pixels.noeba.cat/legal/privacidad/</loc></url>
+  <url><loc>https://pixels.noeba.cat/legal/cookies/</loc></url>
 </urlset>
