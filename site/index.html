@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>pixels.noeba - el nonograma diari</title>
+<meta name="description" content="Un nonograma nou cada dia. Resol-lo i descobreix el dibuix pixel art amagat. Gratis, sense registre, al teu navegador.">
+<meta name="theme-color" content="#090d12">
+<link rel="canonical" href="https://pixels.noeba.cat/">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ca_ES">
+<meta property="og:title" content="pixels.noeba - el nonograma diari">
+<meta property="og:description" content="Un nonograma nou cada dia. Resol-lo i descobreix el dibuix pixel art amagat.">
+<meta property="og:url" content="https://pixels.noeba.cat/">
+<meta property="og:image" content="https://pixels.noeba.cat/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/" aria-label="pixels.noeba"><span class="w1">pixels</span><span class="w2">.noeba</span></a>
+  <span class="top-note" data-i18n="header.tagline">El nonograma diari</span>
+  <div class="langs" role="group" data-i18n-aria="a11y.lang" aria-label="Idioma">
+    <button data-lang="ca" aria-pressed="true">CA</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+    <button data-lang="es" aria-pressed="false">ES</button>
+  </div>
+  <a class="avatar-link" href="https://noeba.cat" title="noeba.cat"><img class="avatar" src="/assets/avatar-david.png" alt="noeba.cat" width="44" height="44"></a>
+</header>
+
+<main class="wrap">
+  <div class="gamebar">
+    <div class="puzzle-id">
+      <span class="pill" id="puzzleLabel">Diari #1</span>
+      <span class="puzzle-date mono" id="puzzleDate"></span>
+    </div>
+    <div class="hearts" id="hearts" role="img" aria-label="3"></div>
+    <div class="timer mono" id="timer" aria-live="off">00:00</div>
+    <div class="modeseg" id="modeSeg" role="group">
+      <button data-mode="fill" aria-pressed="true" id="modeFill"><span class="sq"></span><span data-i18n="game.fill">Omple</span></button>
+      <button data-mode="cross" aria-pressed="false" id="modeCross"><span class="cx">✕</span><span data-i18n="game.cross">Creu</span></button>
+    </div>
+    <nav class="gicons">
+      <button id="btnHowto" data-i18n-title="nav.howto" title="Com es juga">?</button>
+      <button id="btnStats" data-i18n-title="nav.stats" title="Estadístiques">◔</button>
+      <button id="btnArchive" data-i18n-title="nav.archive" title="Arxiu">▦</button>
+    </nav>
+  </div>
+
+  <div class="board-wrap">
+    <div class="board-grid" id="boardGrid">
+      <div class="corner"></div>
+      <div class="col-clues" id="colClues"></div>
+      <div class="row-clues" id="rowClues"></div>
+      <canvas id="board" tabindex="0" role="application"></canvas>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>pixels.noeba · 2026</span>
+  <a href="https://noeba.cat"><span data-i18n="footer.home">Mes projectes</span> · noeba.cat</a>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+</div>
+
+<script type="module" src="/js/game.js"></script>
+</body>
+</html>
