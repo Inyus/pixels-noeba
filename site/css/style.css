@@ -126,3 +126,5 @@ button { font-family: inherit; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+.archive-h { margin: 14px 0 8px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #8b93a5; }

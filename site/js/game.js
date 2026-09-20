@@ -1,10 +1,20 @@
 // pixels.noeba - game engine. Daily nonogram with hearts, streaks, share grid, archive.
 import { I18N } from './i18n.js';
-import { PUZZLES } from './puzzles.js';
+import { PACK, PRACTICE, decodePuzzle } from './puzzles.js';
 import {
-  localDayKey, dailyPuzzle, puzzleClues, isWon, lineComplete,
+  LAUNCH_DAY, localDayKey, dailyPuzzle, puzzleClues, isWon, lineComplete,
   fmtTime, shareText, gridOf,
 } from './core.js';
+
+// The daily queue: hand-drawn originals first, then factory-generated puzzles.
+// Future dailies ship base64-encoded in PACK and are decoded here on load.
+const PUZZLES = PACK.map(decodePuzzle);
+const PRACTICE_PUZZLES = PRACTICE.map(decodePuzzle);
+
+function keyForIndex(idx) {
+  const d = new Date(Date.parse(LAUNCH_DAY + 'T00:00:00') + idx * 86400000);
+  return localDayKey(d);
+}
 
 const $ = (s) => document.querySelector(s);
 const canvas = $('#board');
@@ -71,7 +81,7 @@ function startGame(puzzle, isDaily, number, key) {
   game.status = saved?.status === 'won' ? 'won' : 'idle';
   game.drag = null; game.flashes.clear(); game.revealAt.clear();
   if (game.status === 'won') markRevealed(0);
-  $('#puzzleLabel').textContent = isDaily ? `${t('game.daily')} #${number}` : `${t('game.practice')} #${number}`;
+  $('#puzzleLabel').textContent = isDaily ? `${t('game.daily')} #${number}` : `${t('game.practice')} · ${t('diff.' + (puzzle.difficulty || 2))}`;
   $('#puzzleLabel').classList.toggle('practice', !isDaily);
   $('#puzzleDate').textContent = isDaily ? dayLabel() : '';
   layout(); renderClues(); renderHearts(); updateTimerText(); draw();
@@ -426,36 +436,58 @@ $('#btnStats').addEventListener('click', () => {
   `);
 });
 
+function archiveItem(p, num, label, solved) {
+  return `<button class="archive-item" data-pid="${p.id}">
+    ${solved ? '<span class="tick">✓</span>' : ''}
+    <canvas width="${p.size * 8}" height="${p.size * 8}"></canvas>
+    <span class="num">${label}</span>
+  </button>`;
+}
+
+function paintPreview(btn, p) {
+  const cv = btn.querySelector('canvas'), cx = cv.getContext('2d');
+  p.art.forEach((row, y) => row.split('').forEach((ch, x) => {
+    cx.fillStyle = ch === '.' ? '#0d1319' : p.palette[ch];
+    cx.fillRect(x * 8, y * 8, 8, 8);
+  }));
+}
+
 function openArchiveModal() {
-  const { number: todayNum } = dailyPuzzle(PUZZLES, localDayKey());
-  const items = PUZZLES.map((p, i) => {
+  // Only already-released dailies are listed: the future queue stays hidden.
+  const { number: todayNum, puzzle: todayPuzzle } = dailyPuzzle(PUZZLES, localDayKey());
+  const released = PUZZLES.slice(0, todayNum);
+  const dailyItems = released.map((p, i) => {
     const num = i + 1;
-    const solved = stats.wonIds.includes(p.id);
-    return `<button class="archive-item${num === todayNum ? ' today' : ''}" data-pid="${p.id}">
-      ${solved ? '<span class="tick">✓</span>' : ''}
-      <canvas width="${p.size * 8}" height="${p.size * 8}"></canvas>
-      <span class="num">#${num}${num === todayNum ? ' · ' + t('game.daily') : ''}</span>
-    </button>`;
+    const label = `#${num}${num === todayNum ? ' · ' + t('game.daily') : ''}`;
+    return archiveItem(p, num, label, stats.wonIds.includes(p.id));
+  }).join('');
+  const practiceItems = PRACTICE_PUZZLES.map((p) => {
+    const label = `${t('diff.' + (p.difficulty || 2))}`;
+    return archiveItem(p, 0, label, stats.wonIds.includes(p.id));
   }).join('');
   openModal(`
     <button class="close-x" data-close>✕</button>
     <h2>${t('archive.title')}</h2>
-    <div class="archive-grid">${items}</div>
+    <h3 class="archive-h">${t('archive.dailies')}</h3>
+    <div class="archive-grid">${dailyItems}</div>
+    <h3 class="archive-h">${t('archive.practice')}</h3>
+    <div class="archive-grid">${practiceItems}</div>
     <div class="btn-row"><button class="btn secondary" data-close>${t('archive.close')}</button></div>
   `);
   modal.querySelectorAll('.archive-item').forEach(btn => {
-    const p = PUZZLES.find(pp => pp.id === btn.dataset.pid);
-    const cv = btn.querySelector('canvas'), cx = cv.getContext('2d');
-    p.art.forEach((row, y) => row.split('').forEach((ch, x) => {
-      cx.fillStyle = ch === '.' ? '#0d1319' : p.palette[ch];
-      cx.fillRect(x * 8, y * 8, 8, 8);
-    }));
+    const p = PUZZLES.find(pp => pp.id === btn.dataset.pid) || PRACTICE_PUZZLES.find(pp => pp.id === btn.dataset.pid);
+    if (!p) return;
+    paintPreview(btn, p);
     btn.addEventListener('click', () => {
       closeModal();
+      if (p.id === todayPuzzle.id) { startGame(todayPuzzle, true, todayNum, localDayKey()); return; }
       const idx = PUZZLES.indexOf(p);
-      const { number: tn, puzzle: dp, } = dailyPuzzle(PUZZLES, localDayKey());
-      if (p.id === dp.id) startGame(dp, true, tn, localDayKey());
-      else startGame(p, false, idx + 1, '');
+      if (idx >= 0) {
+        // Replaying a past daily reopens that day's saved game.
+        startGame(p, true, idx + 1, keyForIndex(idx));
+      } else {
+        startGame(p, false, 0, '');
+      }
     });
   });
 }
