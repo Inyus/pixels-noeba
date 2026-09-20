@@ -6,7 +6,7 @@
 
 export const PUZZLES = [
   { id: 'gat', size: 10, name: { ca: 'Un gat', en: 'A cat', es: 'Un gato' },
-    palette: { k: '#2b2f38', o: '#f0922e', w: '#f5f0e8' },
+    palette: { k: '#525b70', o: '#f0922e', w: '#f5f0e8' },
     art: [
       '..k....k..',
       '..kk..kk..',
@@ -20,7 +20,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'gos', size: 10, name: { ca: 'Un gos', en: 'A dog', es: 'Un perro' },
-    palette: { k: '#2b2f38', n: '#9a6a45', w: '#f5f0e8' },
+    palette: { k: '#525b70', n: '#9a6a45', w: '#f5f0e8' },
     art: [
       '.kk....kk.',
       '.knk..knk.',
@@ -34,7 +34,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'conill', size: 10, name: { ca: 'Un conill', en: 'A rabbit', es: 'Un conejo' },
-    palette: {  k: '#2b2f38', e: '#c9d4d6', i: '#f29ec4' },
+    palette: {  k: '#525b70', e: '#c9d4d6', i: '#f29ec4' },
     art: [
       '..kk..kk..',
       '..kek.kek.',
@@ -49,7 +49,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'guineu', size: 10, name: { ca: 'Una guineu', en: 'A fox', es: 'Un zorro' },
-    palette: { k: '#2b2f38', o: '#f07f2e', w: '#f5f0e8' },
+    palette: { k: '#525b70', o: '#f07f2e', w: '#f5f0e8' },
     art: [
       '.kk....kk.',
       '.kook.kook',
@@ -63,7 +63,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'mussol', size: 10, name: { ca: 'Un mussol', en: 'An owl', es: 'Un búho' },
-    palette: { k: '#2b2f38', n: '#8a5a3b', y: '#f0b429', w: '#f5f0e8' },
+    palette: { k: '#525b70', n: '#8a5a3b', y: '#f0b429', w: '#f5f0e8' },
     art: [
       '..kk..kk..',
       '.knnkknnk.',
@@ -77,7 +77,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'peix', size: 10, name: { ca: 'Un peix', en: 'A fish', es: 'Un pez' },
-    palette: {  k: '#2b2f38', b: '#5aa2f0', c: '#7ad0e8' },
+    palette: {  k: '#525b70', b: '#5aa2f0', c: '#7ad0e8' },
     art: [
       '..........',
       '...kkkk...',
@@ -92,7 +92,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'cranc', size: 10, name: { ca: 'Un cranc', en: 'A crab', es: 'Un cangrejo' },
-    palette: { k: '#2b2f38', r: '#e5484d', w: '#f5f0e8' },
+    palette: { k: '#525b70', r: '#e5484d', w: '#f5f0e8' },
     art: [
       '.kk....kk.',
       '.krk..krk.',
@@ -106,7 +106,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'tortuga', size: 10, name: { ca: 'Una tortuga', en: 'A turtle', es: 'Una tortuga' },
-    palette: {  k: '#2b2f38', g: '#4caf6d', y: '#c9d45a' },
+    palette: {  k: '#525b70', g: '#4caf6d', y: '#c9d45a' },
     art: [
       '....kk....',
       '...kggk...',
@@ -121,7 +121,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'papallona', size: 10, name: { ca: 'Una papallona', en: 'A butterfly', es: 'Una mariposa' },
-    palette: { k: '#2b2f38', p: '#a06cd5', i: '#f29ec4' },
+    palette: { k: '#525b70', p: '#a06cd5', i: '#f29ec4' },
     art: [
       '.kk....kk.',
       'kppk..kppk',
@@ -135,7 +135,7 @@ export const PUZZLES = [
       '.kk....kk.',
     ] },
   { id: 'granota', size: 10, name: { ca: 'Una granota', en: 'A frog', es: 'Una rana' },
-    palette: { k: '#2b2f38', g: '#4caf6d', w: '#f5f0e8' },
+    palette: { k: '#525b70', g: '#4caf6d', w: '#f5f0e8' },
     art: [
       '.kkk..kkk.',
       '.kgk..kgk.',
@@ -164,7 +164,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'abella', size: 10, name: { ca: 'Una abella', en: 'A bee', es: 'Una abeja' },
-    palette: {  k: '#2b2f38', y: '#f0b429', w: '#e8f2f5' },
+    palette: {  k: '#525b70', y: '#f0b429', w: '#e8f2f5' },
     art: [
       '..........',
       '...k.k....',
@@ -179,7 +179,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'poma', size: 10, name: { ca: 'Una poma', en: 'An apple', es: 'Una manzana' },
-    palette: { k: '#2b2f38', r: '#e5484d', g: '#4caf6d', n: '#8a5a3b', w: '#f5f0e8' },
+    palette: { k: '#525b70', r: '#e5484d', g: '#4caf6d', n: '#8a5a3b', w: '#f5f0e8' },
     art: [
       '....n.....',
       '...nn.g...',
@@ -193,7 +193,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'cireres', size: 10, name: { ca: 'Cireres', en: 'Cherries', es: 'Cerezas' },
-    palette: {  k: '#2b2f38', r: '#e5484d', g: '#4caf6d', n: '#8a5a3b', w: '#f5f0e8' },
+    palette: {  k: '#525b70', r: '#e5484d', g: '#4caf6d', n: '#8a5a3b', w: '#f5f0e8' },
     art: [
       '......n...',
       '..gggn....',
@@ -208,7 +208,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'bolet', size: 10, name: { ca: 'Un bolet', en: 'A mushroom', es: 'Una seta' },
-    palette: { k: '#2b2f38', r: '#e5484d', w: '#f5f0e8' },
+    palette: { k: '#525b70', r: '#e5484d', w: '#f5f0e8' },
     art: [
       '...kkkk...',
       '..krrrrk..',
@@ -222,7 +222,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'pizza', size: 10, name: { ca: 'Una pizza', en: 'A pizza slice', es: 'Una pizza' },
-    palette: { k: '#2b2f38', y: '#f0c94a', r: '#e5484d', n: '#d9a066' },
+    palette: { k: '#525b70', y: '#f0c94a', r: '#e5484d', n: '#d9a066' },
     art: [
       'kkkkkkkkkk',
       'knnnnnnnnk',
@@ -236,7 +236,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'gelat', size: 10, name: { ca: 'Un gelat', en: 'An ice cream', es: 'Un helado' },
-    palette: { k: '#2b2f38', i: '#f29ec4', w: '#f5f0e8', n: '#d9a066' },
+    palette: { k: '#525b70', i: '#f29ec4', w: '#f5f0e8', n: '#d9a066' },
     art: [
       '...kkkk...',
       '..kiiiik..',
@@ -250,7 +250,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'cafe', size: 10, name: { ca: 'Un cafè', en: 'A coffee', es: 'Un café' },
-    palette: { k: '#2b2f38', w: '#f5f0e8', n: '#8a5a3b', r: '#e5484d' },
+    palette: { k: '#525b70', w: '#f5f0e8', n: '#8a5a3b', r: '#e5484d' },
     art: [
       '..........',
       '..kkkkk...',
@@ -264,7 +264,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'maduixa', size: 10, name: { ca: 'Una maduixa', en: 'A strawberry', es: 'Una fresa' },
-    palette: { k: '#2b2f38', r: '#e5484d', g: '#4caf6d', y: '#f0c94a' },
+    palette: { k: '#525b70', r: '#e5484d', g: '#4caf6d', y: '#f0c94a' },
     art: [
       '....gg....',
       '...gggg...',
@@ -278,7 +278,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'sindria', size: 10, name: { ca: 'Una síndria', en: 'A watermelon', es: 'Una sandía' },
-    palette: { k: '#2b2f38', g: '#4caf6d', r: '#e5484d', w: '#f5f0e8' },
+    palette: { k: '#525b70', g: '#4caf6d', r: '#e5484d', w: '#f5f0e8' },
     art: [
       '..........',
       '..........',
@@ -292,7 +292,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'casa', size: 10, name: { ca: 'Una casa', en: 'A house', es: 'Una casa' },
-    palette: { k: '#2b2f38', r: '#e5484d', w: '#f5f0e8', b: '#5aa2f0', n: '#8a5a3b' },
+    palette: { k: '#525b70', r: '#e5484d', w: '#f5f0e8', b: '#5aa2f0', n: '#8a5a3b' },
     art: [
       '....kk....',
       '...krrk...',
@@ -306,7 +306,7 @@ export const PUZZLES = [
       '.kkkkkkkk.',
     ] },
   { id: 'coet', size: 10, name: { ca: 'Un coet', en: 'A rocket', es: 'Un cohete' },
-    palette: { k: '#2b2f38', w: '#f5f0e8', r: '#e5484d', b: '#5aa2f0', o: '#f0922e' },
+    palette: { k: '#525b70', w: '#f5f0e8', r: '#e5484d', b: '#5aa2f0', o: '#f0922e' },
     art: [
       '....kk....',
       '...kwwk...',
@@ -320,7 +320,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'paraigua', size: 10, name: { ca: 'Un paraigua', en: 'An umbrella', es: 'Un paraguas' },
-    palette: {  k: '#2b2f38', r: '#e5484d', w: '#f5f0e8' },
+    palette: {  k: '#525b70', r: '#e5484d', w: '#f5f0e8' },
     art: [
       '....kk....',
       '..kkrrkk..',
@@ -335,7 +335,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'clau', size: 10, name: { ca: 'Una clau', en: 'A key', es: 'Una llave' },
-    palette: { k: '#2b2f38', y: '#f0b429' },
+    palette: { k: '#525b70', y: '#f0b429' },
     art: [
       '..kkkk....',
       '.kyyyyk...',
@@ -349,7 +349,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'regal', size: 10, name: { ca: 'Un regal', en: 'A gift', es: 'Un regalo' },
-    palette: {  k: '#2b2f38', r: '#e5484d', y: '#f0b429' },
+    palette: {  k: '#525b70', r: '#e5484d', y: '#f0b429' },
     art: [
       '..kk..kk..',
       '.kyyk.kyyk',
@@ -364,7 +364,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'globus', size: 10, name: { ca: 'Un globus', en: 'A balloon', es: 'Un globo' },
-    palette: { k: '#2b2f38', r: '#e5484d', w: '#f5f0e8' },
+    palette: { k: '#525b70', r: '#e5484d', w: '#f5f0e8' },
     art: [
       '...kkkk...',
       '..krrrrk..',
@@ -378,7 +378,7 @@ export const PUZZLES = [
       '....k.....',
     ] },
   { id: 'camera', size: 10, name: { ca: 'Una càmera', en: 'A camera', es: 'Una cámara' },
-    palette: { k: '#2b2f38', e: '#9aa8b2', b: '#5aa2f0', w: '#f5f0e8' },
+    palette: { k: '#525b70', e: '#9aa8b2', b: '#5aa2f0', w: '#f5f0e8' },
     art: [
       '...kk.....',
       'kkkkkkkkkk',
@@ -392,7 +392,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'auriculars', size: 10, name: { ca: 'Auriculars', en: 'Headphones', es: 'Auriculares' },
-    palette: { k: '#2b2f38', b: '#5aa2f0' },
+    palette: { k: '#525b70', b: '#5aa2f0' },
     art: [
       '...kkkk...',
       '..kkbbkk..',
@@ -406,7 +406,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'comandament', size: 10, name: { ca: 'Un comandament', en: 'A gamepad', es: 'Un mando' },
-    palette: { k: '#2b2f38', p: '#a06cd5', w: '#f5f0e8', r: '#e5484d', g: '#4caf6d' },
+    palette: { k: '#525b70', p: '#a06cd5', w: '#f5f0e8', r: '#e5484d', g: '#4caf6d' },
     art: [
       '..........',
       'kkkkkkkkkk',
@@ -420,7 +420,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'bombeta', size: 10, name: { ca: 'Una bombeta', en: 'A lightbulb', es: 'Una bombilla' },
-    palette: { k: '#2b2f38', y: '#f0b429', e: '#9aa8b2' },
+    palette: { k: '#525b70', y: '#f0b429', e: '#9aa8b2' },
     art: [
       '...kkkk...',
       '..kyyyyk..',
@@ -434,7 +434,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'arbre', size: 10, name: { ca: 'Un arbre', en: 'A tree', es: 'Un árbol' },
-    palette: { k: '#2b2f38', g: '#4caf6d', n: '#8a5a3b' },
+    palette: { k: '#525b70', g: '#4caf6d', n: '#8a5a3b' },
     art: [
       '...kkkk...',
       '..kggggk..',
@@ -448,7 +448,7 @@ export const PUZZLES = [
       '..kknnkk..',
     ] },
   { id: 'flor', size: 10, name: { ca: 'Una flor', en: 'A flower', es: 'Una flor' },
-    palette: { k: '#2b2f38', r: '#e5484d', y: '#f0b429', g: '#4caf6d' },
+    palette: { k: '#525b70', r: '#e5484d', y: '#f0b429', g: '#4caf6d' },
     art: [
       '..kk..kk..',
       '.krrk.krrk',
@@ -462,7 +462,7 @@ export const PUZZLES = [
       '....k.g...',
     ] },
   { id: 'cactus', size: 10, name: { ca: 'Un cactus', en: 'A cactus', es: 'Un cactus' },
-    palette: {  k: '#2b2f38', g: '#4caf6d', i: '#f29ec4' },
+    palette: {  k: '#525b70', g: '#4caf6d', i: '#f29ec4' },
     art: [
       '....ii....',
       '...kkkk...',
@@ -477,7 +477,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'sol', size: 10, name: { ca: 'El sol', en: 'The sun', es: 'El sol' },
-    palette: {  k: '#2b2f38', y: '#f0b429', o: '#f0922e' },
+    palette: {  k: '#525b70', y: '#f0b429', o: '#f0922e' },
     art: [
       '.k......k.',
       '..k....k..',
@@ -492,7 +492,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'nuvol', size: 10, name: { ca: 'Un núvol amb pluja', en: 'A rain cloud', es: 'Una nube con lluvia' },
-    palette: { k: '#2b2f38', w: '#f5f0e8', b: '#5aa2f0' },
+    palette: { k: '#525b70', w: '#f5f0e8', b: '#5aa2f0' },
     art: [
       '...kkkk...',
       '..kwwwwk..',
@@ -506,7 +506,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'muntanya', size: 10, name: { ca: 'Una muntanya', en: 'A mountain', es: 'Una montaña' },
-    palette: { k: '#2b2f38', e: '#9aa8b2', w: '#f5f0e8', g: '#4caf6d' },
+    palette: { k: '#525b70', e: '#9aa8b2', w: '#f5f0e8', g: '#4caf6d' },
     art: [
       '....kk....',
       '...kwwk...',
@@ -520,7 +520,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'cor', size: 10, name: { ca: 'Un cor', en: 'A heart', es: 'Un corazón' },
-    palette: {  k: '#2b2f38', r: '#e5484d', w: '#f5f0e8' },
+    palette: {  k: '#525b70', r: '#e5484d', w: '#f5f0e8' },
     art: [
       '.kkk..kkk.',
       'krrrkkrrrk',
@@ -535,7 +535,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'estrella', size: 10, name: { ca: 'Una estrella', en: 'A star', es: 'Una estrella' },
-    palette: { k: '#2b2f38', y: '#f0b429', o: '#f0922e' },
+    palette: { k: '#525b70', y: '#f0b429', o: '#f0922e' },
     art: [
       '....kk....',
       '....kyk...',
@@ -549,7 +549,7 @@ export const PUZZLES = [
       '.kk....kk.',
     ] },
   { id: 'fantasma', size: 10, name: { ca: 'Un fantasma', en: 'A ghost', es: 'Un fantasma' },
-    palette: { k: '#2b2f38', w: '#f5f0e8', b: '#5aa2f0' },
+    palette: { k: '#525b70', w: '#f5f0e8', b: '#5aa2f0' },
     art: [
       '...kkkk...',
       '..kwwwwk..',
@@ -563,7 +563,7 @@ export const PUZZLES = [
       '..k..k..k.',
     ] },
   { id: 'robot', size: 10, name: { ca: 'Un robot', en: 'A robot', es: 'Un robot' },
-    palette: { k: '#2b2f38', e: '#9aa8b2', t: '#72e2c4' },
+    palette: { k: '#525b70', e: '#9aa8b2', t: '#72e2c4' },
     art: [
       '....kk....',
       '....ktk...',
@@ -577,7 +577,7 @@ export const PUZZLES = [
       '.kkk..kkk.',
     ] },
   { id: 'alien', size: 10, name: { ca: 'Un extraterrestre', en: 'An alien', es: 'Un extraterrestre' },
-    palette: { k: '#2b2f38', g: '#7ee06d', t: '#72e2c4' },
+    palette: { k: '#525b70', g: '#7ee06d', t: '#72e2c4' },
     art: [
       '..k....k..',
       '..kk..kk..',
@@ -591,7 +591,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'corona', size: 10, name: { ca: 'Una corona', en: 'A crown', es: 'Una corona' },
-    palette: { k: '#2b2f38', y: '#f0b429', r: '#e5484d' },
+    palette: { k: '#525b70', y: '#f0b429', r: '#e5484d' },
     art: [
       '.k..kk..k.',
       '.kk.kyk.kk',
@@ -605,7 +605,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'ancora', size: 10, name: { ca: 'Una àncora', en: 'An anchor', es: 'Un ancla' },
-    palette: { k: '#2b2f38', b: '#5aa2f0' },
+    palette: { k: '#525b70', b: '#5aa2f0' },
     art: [
       '...kkkk...',
       '..kb..bk..',
@@ -619,7 +619,7 @@ export const PUZZLES = [
       '..kkkkkk..',
     ] },
   { id: 'balena', size: 10, name: { ca: 'Una balena', en: 'A whale', es: 'Una ballena' },
-    palette: { k: '#2b2f38', b: '#5aa2f0', c: '#7ad0e8', w: '#f5f0e8' },
+    palette: { k: '#525b70', b: '#5aa2f0', c: '#7ad0e8', w: '#f5f0e8' },
     art: [
       '..........',
       '....c.c...',
@@ -633,7 +633,7 @@ export const PUZZLES = [
       '..........',
     ] },
   { id: 'pop', size: 10, name: { ca: 'Un pop', en: 'An octopus', es: 'Un pulpo' },
-    palette: {  k: '#2b2f38', p: '#a06cd5', i: '#f29ec4' },
+    palette: {  k: '#525b70', p: '#a06cd5', i: '#f29ec4' },
     art: [
       '...kkkk...',
       '..kppppk..',
@@ -648,7 +648,7 @@ export const PUZZLES = [
     
     ] },
   { id: 'cargol', size: 10, name: { ca: 'Un cargol', en: 'A snail', es: 'Un caracol' },
-    palette: { k: '#2b2f38', n: '#d9a066', o: '#f0922e' },
+    palette: { k: '#525b70', n: '#d9a066', o: '#f0922e' },
     art: [
       '..........',
       '...kkkk...',
